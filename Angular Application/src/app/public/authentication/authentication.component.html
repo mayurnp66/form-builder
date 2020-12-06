@@ -1,0 +1,140 @@
+<!-- Loading overlay section starts -->
+<div *ngIf="overlayDisplay" class="overlay">
+	<h1>Loading</h1>
+</div>
+
+<div class="container">
+
+	<div class="row login-screen">
+		<div class="offset-md-3 col-md-5 justifier">
+
+			<ngb-tabset [justify]='setTabPosition'>
+
+				<ngb-tab title="Login">
+					<ng-template ngbTabContent>
+						<div class="justifier">
+							<form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+								<div class="form-group">
+									<label>Email</label><span class="required-field">*</span>
+									<input type="text" name="email" class="form-control" placeholder="Enter your Email"
+										formControlName="email" autocomplete="off">
+									<div class="alert alert-danger feedback"
+										*ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">
+										<span *ngIf="loginForm.controls['email'].errors.required">
+											Email is required
+										</span>
+										<span *ngIf="loginForm.controls['email'].errors.email">
+											Please enter proper email id
+										</span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Password</label><span class="required-field">*</span>
+									<input type="password" name="password" class="form-control"
+										placeholder="Enter your Password" formControlName='password'>
+									<div class="alert alert-danger feedback"
+										*ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+										<span *ngIf="registrationForm.controls['password'].errors.required">
+											Password is required
+										</span>
+									</div>
+								</div>
+								<div class="alert alert-danger feedback" *ngIf="loginError">
+									Inavlid Username Password combination.
+								</div>
+
+								<div class="form-group">
+									<button type='submit' class="btn btn-primary"
+										[disabled]="!loginForm.valid">Login</button>
+								</div>
+							</form>
+							<div>
+								<p>Or</p>
+							</div>
+						</div>
+					</ng-template>
+				</ngb-tab>
+
+				<ngb-tab title="Registration">
+					<ng-template ngbTabContent>
+						<div class="justifier">
+							<form (ngSubmit)="register()" [formGroup]="registrationForm" novalidate>
+								<div class="form-group">
+									<label>First Name</label><span class="required-field">*</span>
+									<input type="text" name="firstName" class="form-control"
+										placeholder="Enter your First Name" formControlName="firstName"
+										autocomplete="off">
+									<div class="alert alert-danger feedback"
+										*ngIf="!registrationForm.controls['firstName'].valid && registrationForm.controls['firstName'].touched">
+										<span *ngIf="registrationForm.controls['firstName'].errors.required">
+											First Name is required
+										</span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Last Name</label><span class="required-field">*</span>
+									<input type="text" name="lastName" class="form-control"
+										placeholder="Enter your Last Name" formControlName="lastName"
+										autocomplete="off">
+									<div class="alert alert-danger feedback"
+										*ngIf="!registrationForm.controls['lastName'].valid && registrationForm.controls['lastName'].touched">
+										<span *ngIf="registrationForm.controls['lastName'].errors.required">
+											Last Name is required
+										</span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Email</label><span class="required-field">*</span>
+									<input type="text" name="email" class="form-control" placeholder="Enter your Email"
+										formControlName="email" autocomplete="off">
+									<div class="alert alert-danger feedback"
+										*ngIf="!registrationForm.controls['email'].valid && registrationForm.controls['email'].touched">
+										<span *ngIf="registrationForm.controls['email'].errors.required">
+											Email is required
+										</span>
+										<span *ngIf="registrationForm.controls['email'].errors.email">
+											Please enter proper email id
+										</span>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Password</label><span class="required-field">*</span>
+									<input type="password" name="password" class="form-control"
+										placeholder="Enter your Password" formControlName="password">
+									<div class=" alert alert-danger feedback"
+										*ngIf="!registrationForm.controls['password'].valid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)">
+										<span *ngIf="registrationForm.controls['password'].errors.required">
+											Password is required
+										</span>
+										<span *ngIf="registrationForm.controls['password'].errors.pattern">
+											Your password must be at least 8 characters long, contain at least one
+											number, one special character and have a mixture of uppercase and lowercase
+											letters.
+										</span>
+										<span *ngIf="registrationForm.controls['password'].errors.minlength">
+											<hr>
+											{{registrationForm.controls['password'].errors.minlength.requiredLength
+											- registrationForm.controls['password'].errors.minlength.actualLength}} characters left
+										</span>
+									</div>
+								</div>
+								<div class="alert alert-danger feedback" *ngIf="registrationError">
+									<span>{{errorMessage}}</span>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary"
+										[disabled]="!registrationForm.valid">Registration</button>
+								</div>
+							</form>
+						</div>
+					</ng-template>
+				</ngb-tab>
+
+			</ngb-tabset>
+		</div>
+	</div>
+</div>
