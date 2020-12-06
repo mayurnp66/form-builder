@@ -1,6 +1,6 @@
 # form-builder
 
-## Clone the repository, install node packages and verify routes locally
+## Clone the repository, install node packages and start application in local server
 
 `git clone https://github.com/mayurnp66/form-builder.git`
 
