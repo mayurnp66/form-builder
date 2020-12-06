@@ -37,16 +37,6 @@ export class AuthenticationComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		// this.overlayDisplay = true;
-		// this.chatService.userSessionCheck().subscribe( async (loggedIn: boolean) => {
-		// 	if (loggedIn) {
-		// 		await this.router.navigate(['/pages/home']);
-		// 		this.overlayDisplay = false;
-		// 	} else {
-		// 		this.overlayDisplay = false;
-		// 		this.getUsernameSuggestion();
-		// 	}
-		// });
 	}
 
 	login(): void {
@@ -57,13 +47,14 @@ export class AuthenticationComponent implements OnInit {
 					console.log('response', response);
 					this.overlayDisplay = false;
 					if (response.error == true) {
-						this.registrationError = true;
+						this.loginError = true;
 						this.errorMessage = response.message;
 					} else {
+						localStorage.setItem('firstName', response.data.firstName);
+						localStorage.setItem('lastName', response.data.lastName);
+						localStorage.setItem('email', response.data.email);
+						this.router.navigate(['/survey']);
 					}
-
-					// localStorage.setItem('userid', response.userId);
-					// this.router.navigate(['/pages/home']);
 				},
 				(error) => {
 					this.overlayDisplay = true;
@@ -84,10 +75,11 @@ export class AuthenticationComponent implements OnInit {
 						this.registrationError = true;
 						this.errorMessage = response.message;
 					} else {
+						localStorage.setItem('firstName', this.registrationForm.get('firstName').value);
+						localStorage.setItem('lastName', this.registrationForm.get('lastName').value);
+						localStorage.setItem('email', this.registrationForm.get('email').value);
+						this.router.navigate(['/survey']);
 					}
-
-					// localStorage.setItem('userid', response.userId);
-					// this.router.navigate(['/pages/home']);
 				},
 				(error) => {
 					this.overlayDisplay = true;

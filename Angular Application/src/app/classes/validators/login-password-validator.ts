@@ -1,6 +1,6 @@
 import { Validators } from '@angular/forms';
 
-export class MessageValidator {
+export class LoginPasswordValidator {
 	constructor() {
 		return [
 			'',
@@ -8,7 +8,8 @@ export class MessageValidator {
 				[
 					Validators.required
 				],
-			),
+			)
 		];
 	}
 }
+

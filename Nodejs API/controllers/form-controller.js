@@ -6,7 +6,6 @@ exports.getFormById = (req, res) => {
     console.log("formId", formId)
     Form.getFormById(formId)
         .then(([rows,fieldData]) => {
-            console.log("getFormById response", rows[0].form_title);
             res.status(CONSTANTS.SERVER_OK_HTTP_CODE).json({
                 error : false,
                 data: rows[0]

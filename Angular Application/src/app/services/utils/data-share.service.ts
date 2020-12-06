@@ -1,27 +1,43 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataShareService {
-	public userId: string = null;
-	public userName: string = null;
-	private user = new BehaviorSubject(null);
+	public firstName: string = null;
+	public lastName: string = null;
+	public email: string = null;
 
-	constructor() { }
+	constructor(
+		private router: Router
+	) { }
 
-	getUserId(): string {
-		if (this.userId  === null) {
-			this.userId = localStorage.getItem('userid');
+	getFirstName(): string {
+		if (this.firstName  === null) {
+			this.firstName = localStorage.getItem('firstName');
 		}
-		return this.userId;
+		return this.firstName;
 	}
 
-	getUserName(): string {
-		if (this.userName === null) {
-			this.userName = localStorage.getItem('username');
+	getLastName(): string {
+		if (this.lastName  === null) {
+			this.lastName = localStorage.getItem('lastName');
 		}
-		return this.userName;
+		return this.lastName;
 	}
+
+	getEmail(): string {
+		if (this.email  === null) {
+			this.email = localStorage.getItem('email');
+		}
+		return this.email;
+	}
+
+	logout() {
+		localStorage.clear();
+		this.router.navigate(['/authentication']);
+	}
+
+
 }

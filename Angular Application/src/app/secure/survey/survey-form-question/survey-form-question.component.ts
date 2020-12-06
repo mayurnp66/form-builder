@@ -17,8 +17,12 @@ export class SurveyFormQuestionComponent implements OnInit {
   ngOnInit() {
   }
 
-  get isValid() { 
-    return this.form.controls[this.question.key].valid; 
+  get isInvalid() {
+    return this.form.controls[this.question.key].invalid && this.form.controls[this.question.key].touched;
+  }
+
+  onChangeCheckbox($event) {
+    console.log($event);
   }
 
 }

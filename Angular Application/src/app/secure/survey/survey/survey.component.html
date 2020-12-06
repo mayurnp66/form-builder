@@ -1,11 +1,14 @@
-
 <div class="container">
   <div class="row">
-    <div class="offset-md-3 col-md-5 justifier">
+    <div class="offset-md-3 col-md-6 justifier d-flex justify-content-center">
       <div>
-        <h2>Survey Form</h2>
+        <h2 class="text-center form-title" >Survey Form</h2>
+        <h3 class="text-center username">Hello, {{ firstName }} {{ lastName }}</h3>
         <app-survey-form [questions]="questions$ | async"></app-survey-form>
       </div>
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-primary logoutBtn" (click)="logout()">Logout</button>
     </div>
   </div>
 </div>

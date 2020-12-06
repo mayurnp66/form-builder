@@ -1,0 +1,14 @@
+.form-title {
+    color:orange;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.username {
+    color:blue;
+}
+
+.logoutBtn {
+    float: right;
+    margin-top: 25px;
+}

@@ -3,13 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthenticationComponent } from './authentication.component';
 
-const routes: Routes = [{
-	path: '/authentication',
-	component: AuthenticationComponent
-}, {
-	path: '**',
-	redirectTo: '',
-}];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

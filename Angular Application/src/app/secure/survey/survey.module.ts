@@ -10,7 +10,7 @@ import { SurveyFormQuestionComponent } from './survey-form-question/survey-form-
   imports: [
     CommonModule,
 		UISupportModule,
-		FormSupportModule
+    FormSupportModule
   ],
   declarations: [SurveyComponent, SurveyFormComponent, SurveyFormQuestionComponent]
 })

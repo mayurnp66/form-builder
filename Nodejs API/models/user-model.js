@@ -8,25 +8,12 @@ module.exports = class User {
       this.password = password;
     }
 
-    
-  
-    // register() {
-    //   return db.execute(
-    //     'INSERT INTO employee (employee_id, employee_name) VALUES (?, ?)',
-    //     [this.employeeId, this.employeeName]
-    //   );
-    // }
     register() {
       return db.execute(
         'INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)',
         [this.firstName, this.lastName, this.email, this.password]
       );
     }
-  
-    // static deleteById(id) {}
-    // static fetchAll() {
-    //   return db.execute('SELECT * FROM employee');
-    // }
   
     static findUserByEmailId(email) {
       return db.execute('SELECT * FROM user WHERE user.email = ?', [email]);

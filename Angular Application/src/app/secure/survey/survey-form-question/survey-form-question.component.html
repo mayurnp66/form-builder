@@ -1,5 +1,5 @@
 <div [formGroup]="form" class="form-group">
-  <label [attr.for]="question.key">{{question.label}}</label>
+  <h4>{{question.order}}. <label [attr.for]="question.key">{{question.label}}</label><span class="required-field" *ngIf="question.required">*</span></h4>
 
   <div [ngSwitch]="question.controlType">
 
@@ -10,7 +10,39 @@
       <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
     </select>
 
+    <div *ngSwitchCase="'radiobutton'" >
+      <div *ngFor="let opt of question.options" class="radio">
+        <label [attr.for]="opt.key">
+          <input  [formControlName]="question.key" 
+                  [type]="question.type" 
+                  [id]="opt.key" 
+                  [name]="question.key" 
+                  [value]="opt.value">
+          {{opt.value}}
+        </label>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'checkbox'">
+      <div *ngFor="let opt of question.options" class="checkbox">        
+        <label [attr.for]="opt.key">
+          <input  [formControlName]="question.key"
+                [type]="question.type" 
+                [id]="question.key" 
+                [name]="question.key" 
+                [value]="opt.value">
+          {{opt.value}}
+        </label>
+      </div>
+    </div>
+    <!-- <input
+      *ngSwitchCase="'checkbox'"
+      [formControlName]="question.key"
+      [checked]="question['value']"
+      [id]="question.key"
+      (change)="form.controls[question.key].setValue($event.target.checked)"
+      [type]="question.type"> -->
   </div>
 
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+  <div class="errorMessage" *ngIf="isInvalid">{{question.label}} is required</div>
 </div>

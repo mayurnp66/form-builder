@@ -41,7 +41,7 @@
 									</div>
 								</div>
 								<div class="alert alert-danger feedback" *ngIf="loginError">
-									Inavlid Username Password combination.
+									{{ errorMessage }}
 								</div>
 
 								<div class="form-group">
@@ -49,9 +49,6 @@
 										[disabled]="!loginForm.valid">Login</button>
 								</div>
 							</form>
-							<div>
-								<p>Or</p>
-							</div>
 						</div>
 					</ng-template>
 				</ngb-tab>
