@@ -2,7 +2,7 @@
 
 => Clone the repository, install node packages and verify routes locally
 //on local
-git clone https://github.com/zowe/sample-node-api
+git clone https://github.com/mayurnp66/form-builder.git
 
 1) Setup Nodejs API Application
 cd Nodejs API
