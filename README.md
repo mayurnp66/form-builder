@@ -1,7 +1,8 @@
 # form-builder
 
 ## Clone the repository, install node packages and verify routes locally
-git clone https://github.com/mayurnp66/form-builder.git
+
+`git clone https://github.com/mayurnp66/form-builder.git`
 
 ### 1) Setup Nodejs API Application
 ```
@@ -9,8 +10,9 @@ cd Nodejs API
 npm install
 npm start (node app.js) or npm run dev (nodemon app.js)
 ```
+
+### 2) Setup Angular Application
 ```
-2) Setup Angular Application
 cd Angular Application
 npm install
 ```
