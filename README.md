@@ -1,10 +1,10 @@
 # form-builder
 
 ## Clone the repository, install node packages and verify routes locally
-//on local
 git clone https://github.com/mayurnp66/form-builder.git
+
+### 1) Setup Nodejs API Application
 ```
-1) Setup Nodejs API Application
 cd Nodejs API
 npm install
 npm start (node app.js) or npm run dev (nodemon app.js)
